@@ -1,0 +1,787 @@
+"DOTAAbilities"
+{
+
+  "item_hand_of_midas_upgraded"
+  {
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"                    "lua_items/item_hand_of_midas_upgraded.lua"
+  	"ID"							"1250"  //Valve's version of this item uses the ID "65"
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NONE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  	"AbilityTextureName"			"hand_of_midas_upgraded"
+
+  	// Stats
+  	//-------------------------------------------------------------------------------------------------------------
+  	"AbilityCastRange"				"600"
+  	"AbilityCastPoint"				"0.0"
+  	"AbilityCooldown"				"80.0"
+  	"AbilityManaCost"				"0"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"4050"
+  	"ItemShopTags"					"attack_speed;hard_to_tag"
+  	"ItemQuality"					"artifact"
+  	"ItemAliases"					"hand of midas, fist of gilgamesh, but gold is power, gold is power"
+  	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+  	"AbilitySpecial"
+  	{
+  		"01"
+  		{
+  			"var_type"				"FIELD_FLOAT"
+  			"xp_multiplier"			"2.5"
+  		}
+  		"02"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"bonus_gold"			"190"
+  		}
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed"     "100"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "gold_gain"     "120"
+      }
+  	}
+
+  	"OnSpellStart"
+  	{
+  		"RunScript"
+  		{
+  			"ScriptFile"			"lua_items/item_hand_of_midas.lua"
+  			"Function"				"item_hand_of_midas_datadriven_on_spell_start"
+  			"BonusGold"				"%bonus_gold"
+  			"XPMultiplier"			"%xp_multiplier"
+  		}
+  	}
+  }
+
+"item_recipe_hand_of_midas_upgraded"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"                     "item_datadriven"
+      "ID"                            "1251"
+
+      // Item Info
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemCost"                      "1000"
+      "ItemShopTags"                  ""
+
+      // Recipe
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_hand_of_midas_upgraded"
+      "ItemRequirements"
+      {
+          "01"                        "item_hand_of_midas;item_hyperstone"
+      }
+  }
+
+  "item_staff_of_fate"
+  {
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"                    "lua_items/item_staff_of_fate.lua"
+  	"ID"							"1252"  //Valve's version of this item uses the ID "65".
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+  	"AbilityTextureName"			"staff_of_fate"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NONE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCooldown"         "0.2"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"6000"
+  	"ItemShopTags"					"spell_amp;hard_to_tag"
+  	"ItemQuality"					"artifact"
+  	"ItemAliases"					"but attacking may cast spells, attacking casts spells, staff of fate"
+  	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+  	"AbilitySpecial"
+  	{
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed"     "40"
+      }
+  		"02"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"bonus_int"			 "50"
+  		}
+  	}
+  }
+
+"item_recipe_staff_of_fate"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"                     "item_datadriven"
+      "ID"                            "1253"
+
+      // Item Info
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemCost"                      "700"
+      "ItemShopTags"                  ""
+
+      // Recipe
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_staff_of_fate"
+      "ItemRequirements"
+      {
+          "01"                        "item_oblivion_staff;item_staff_of_wizardry;item_mystic_staff"
+      }
+  }
+
+
+  "item_farahs_knife"
+  {
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"                    "lua_items/item_farahs_knife.lua"
+  	"ID"							"1254"  //Valve's version of this item uses the ID "65".
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NONE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  	"AbilityTextureName"			"farahs_knife"
+    "AbilityCooldown"       "0.2"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"4200"
+  	"ItemShopTags"					"attack_speed:cooldown;hard_to_tag"
+  	"ItemQuality"					"artifact"
+  	"ItemAliases"					"but attacking reduces cooldowns, attacking reduces cooldowns, farahs knife, butt"
+  	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+  	"AbilitySpecial"
+  	{
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_str"     "18"
+      }
+  		"02"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"bonus_int"			 "15"
+  		}
+  		"03"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"attack_speed"			 "25"
+  		}
+  		"04"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"mana_regen"			 "4"
+  		}
+  		"05"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"health_regen"			 "8"
+  		}
+  		"06"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"attack_damage"			 "22"
+  		}
+  		"07"
+  		{
+  			"var_type"				"FIELD_FLOAT"
+  			"cd_drop"			 "0.5"
+  		}
+  	}
+  }
+
+"item_recipe_farahs_knife"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"                     "item_datadriven"
+      "ID"                            "1255"
+
+      // Item Info
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemCost"                      "500"
+      "ItemShopTags"                  ""
+
+      // Recipe
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_farahs_knife"
+      "ItemRequirements"
+      {
+          "01"                        "item_pers;item_echo_sabre"
+      }
+  }
+
+
+  "item_thorn_plate"
+  {
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"                    "lua_items/item_thorn_plate.lua"
+  	"ID"							"1256"  //Valve's version of this item uses the ID "65".
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+  	"AbilityTextureName"			"thorn_plate"
+    "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityCooldown"         "25"
+    "AbilityManaCost"         "35"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"4200"
+  	"ItemShopTags"					"armor:defense;hard_to_tag"
+  	"ItemQuality"					"artifact"
+  	"ItemAliases"					"but hurting hurts, hurting hurts, thorn plate, butt"
+  	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+  	"AbilitySpecial"
+  	{
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_int"     "12"
+      }
+  		"02"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"bonus_arm"			 "21"
+  		}
+  		"03"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"attack_dmg"			 "32"
+  		}
+  		"04"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"passive_ref"			 "15"
+  		}
+  		"05"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"active_ref"			 "120"
+  		}
+  		"06"
+  		{
+  			"var_type"				"FIELD_INTEGER"
+  			"active_ref_dur"			 "4.5"
+  		}
+  		"07"
+  		{
+  			"var_type"				"FIELD_FLOAT"
+  			"dmg_red_amt"			 "50"
+  		}
+  		"08"
+  		{
+  			"var_type"				"FIELD_FLOAT"
+  			"magic_res"			 "30"
+  		}
+  		"09"
+  		{
+  			"var_type"				"FIELD_FLOAT"
+  			"health_regen"			 "8.5"
+  		}
+  	}
+  }
+
+"item_recipe_thorn_plate"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"                     "item_datadriven"
+      "ID"                            "1257"
+
+      // Item Info
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemCost"                      "300"
+      "ItemShopTags"                  ""
+
+      // Recipe
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_thorn_plate"
+      "ItemRequirements"
+      {
+          "01"                        "item_blade_mail;item_platemail;item_hood_of_defiance"
+      }
+  }
+
+  "item_flask_of_ambrosia_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1258"  //Valve's version of this item uses the ID "92".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_flask_of_ambrosia"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"950"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"7.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"875"
+		"ItemShopTags"					"regen_mana;str;boost_health"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"flask of ambrosia, but you're drunk, you're drunk, but your drunk, your drunk, drunk, but, butt"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges"			"10"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen_percent"	"75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_radius"			"1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_initial_charge"	"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_additional_charges"	"1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"soul_heal_interval"	"0.25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"soul_damage_interval"	"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_heal_amount"		"500"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_damage_amount"	"400"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"soul_heal_duration"	"8.0"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"soul_damage_duration"	"8.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"lua_items/item_flask_of_ambrosia.lua"
+				"Function"			"item_flask_of_ambrosia_datadriven_on_spell_start"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_flask_of_ambrosia_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"		"%mana_regen_percent"
+				}
+			}
+			"modifier_item_flask_of_ambrosia_datadriven_aura_emitter"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+
+				"Aura" 					"modifier_item_flask_of_ambrosia_datadriven_aura"
+				"Aura_Radius" 			"%soul_radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" 	"0"
+
+				"OnKill"  //Killing an enemy hero grants Urn charges even if they are not in range.
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"lua_items/item_flask_of_ambrosia.lua"
+						"Function"				"modifier_item_flask_of_ambrosia_datadriven_aura_emitter_on_kill"
+					}
+				}
+			}
+			"modifier_item_flask_of_ambrosia_datadriven_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"lua_items/item_flask_of_ambrosia.lua"
+						"Function"			"modifier_item_flask_of_ambrosia_datadriven_aura_on_death"
+					}
+				}
+			}
+			"modifier_item_flask_of_ambrosia_datadriven_heal"
+			{
+				"Duration"			"%soul_heal_duration"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"1"
+
+				"EffectName"			"particles/items2_fx/flask_of_ambrosia_heal.vpcf"
+				"EffectAttachType"		"follow_origin"
+
+				"ThinkInterval" 		"%soul_heal_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"lua_items/item_flask_of_ambrosia.lua"
+						"Function"			"modifier_item_flask_of_ambrosia_datadriven_heal_on_interval_think"
+						"TotalHeal"			"%soul_heal_amount"
+						"TotalDuration"		"%soul_heal_duration"
+						"Interval"			"%soul_heal_interval"
+					}
+				}
+
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"lua_items/item_flask_of_ambrosia.lua"
+						"Function"			"modifier_item_flask_of_ambrosia_datadriven_heal_on_take_damage"
+						"Damage"			"%attack_damage"
+					}
+				}
+			}
+			"modifier_item_flask_of_ambrosia_datadriven_damage"
+			{
+				"Duration"			"%soul_damage_duration"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsBuff"			"0"
+				"IsDebuff"			"1"
+				"IsPurgable"		"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"EffectName"			"particles/items2_fx/flask_of_ambrosia_damage.vpcf"
+				"EffectAttachType"		"follow_origin"
+
+				"ThinkInterval" 		"%soul_damage_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"lua_items/item_flask_of_ambrosia.lua"
+						"Function"			"modifier_item_flask_of_ambrosia_datadriven_damage_on_interval_think"
+						"TotalDamage"		"%soul_damage_amount"
+						"TotalDuration"		"%soul_damage_duration"
+						"Interval"			"%soul_damage_interval"
+					}
+				}
+			}
+		}
+	}
+
+
+	// Rewrite of Recipe: Urn of Shadows
+	// Author: Rook
+	// Date: January 26, 2015
+
+	"item_recipe_flask_of_ambrosia_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1259"  //Valve's version of this item uses the ID "91".
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2000"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_flask_of_ambrosia_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_urn_of_shadows;item_orb_of_venom"
+		}
+	}
+
+  // Rewrite of Orb of Venom
+  // Author: Rook
+  // Date: February 4, 2015
+  // Known bugs:
+  //     For some reason, this implementation of Orb of Venom's orb effect only stacks with lifesteal if you pick up
+  //         a lifesteal item first and then an Orb of Venom afterwards.
+
+  "item_viper_cleats"
+  {
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"          "lua_items/item_viper_cleats.lua"
+  	"ID"							"1260"  //Valve's version of this item uses the ID "181".
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+  	"AbilityTextureName"			"item_viper_cleats"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"275"
+  	"ItemShopTags"					"hard_to_tag"
+  	"ItemQuality"					"common"
+  	"ItemAliases"					"orb of venom, but orb of venom stacks, orb of venom stacks, but, butt"
+  	"SecretShop"					"0"
+  	"SideShop"						"1"
+
+  	// Special
+  	//-------------------------------------------------------------------------------------------------------------
+  	"AbilitySpecial"
+  	{
+  		"01"
+  		{
+  			"var_type"							"FIELD_INTEGER"
+  			"poison_movement_speed_melee"		"16"
+  		}
+  		"02"
+  		{
+  			"var_type"							"FIELD_INTEGER"
+  			"poison_movement_speed_ranged"		"8"
+  		}
+  		"03"
+  		{
+  			"var_type"							"FIELD_FLOAT"
+  			"poison_duration"					"8.0"
+  		}
+  		"04"
+  		{
+  			"var_type"							"FIELD_FLOAT"
+  			"poison_damage_per_second"			"6.0"
+  		}
+  		"05"
+  		{
+  			"var_type"							"FIELD_FLOAT"
+  			"poison_damage_interval"			"1.0"
+  		}
+  		"06"
+  		{
+  			"var_type"							"FIELD_FLOAT"
+  			"ms_bonus"			"25"
+  		}
+  		"07"
+  		{
+  			"var_type"							"FIELD_FLOAT"
+  			"min_ms_bonus"			"75"
+  		}
+  	}
+  }
+
+  "item_recipe_viper_cleats"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"						"item_datadriven"
+    "ID"							"1261"  //Valve's version of this item uses the ID "91".
+    "Model"							"models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"			"item_recipe"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"						"1500"
+    "ItemShopTags"					""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"					"1"
+    "ItemResult"					"item_viper_cleats"
+		"ItemRequirements"
+		{
+			"01"						"item_orb_of_venom;item_boots"
+		}
+  }
+
+  "item_diamond_spectacle"
+  {
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"          			"lua_items/item_diamond_spectacle.lua"
+  	"ID"							"1262"  //Valve's version of this item uses the ID "181".
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+  	"AbilityTextureName"			"item_diamond_spectacle"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"3750"
+  	"ItemShopTags"					"hard_to_tag"
+  	"ItemQuality"					"secret_shop"
+  	"ItemAliases"					"odin spectacle, butt, butt"
+  	"SecretShop"					"0"
+  	"SideShop"						"1"
+
+  	// Special
+  	//-------------------------------------------------------------------------------------------------------------
+  	"AbilitySpecial"
+  	{
+  		"01"
+  		{
+  			"var_type"							"FIELD_INTEGER"
+  			"radius_bonus"		"125"
+  		}
+  		"02"
+  		{
+  			"var_type"							"FIELD_FLOAT"
+  			"radius_percent"		"115"
+  		}
+  	}
+  }
+
+	"item_scorpion_bow"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"ScriptFile"          			"lua_items/item_scorpion_bow.lua"
+		"ID"							"1263"  //Valve's version of this item uses the ID "181".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_scorpion_bow"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3600"
+		"ItemShopTags"					"hard_to_tag"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"scorpion bow, but, butt"
+		"SecretShop"					"0"
+	}
+
+  	"item_storm_scythe"
+  	{
+  	// General
+  	//-------------------------------------------------------------------------------------------------------------
+  	"BaseClass"						"item_lua"
+    "ScriptFile"          			"lua_items/item_storm_scythe.lua"
+  	"ID"							"1264"  //Valve's version of this item uses the ID "181".
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  	"Model"							"models/props_gameplay/red_box.vmdl"
+  	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+  	"AbilityTextureName"			"item_storm_scythe"
+
+  	// Item Info
+  	//-------------------------------------------------------------------------------------------------------------
+  	"ItemCost"						"6700"
+  	"ItemShopTags"					"hard_to_tag"
+  	"ItemQuality"					"secret_shop"
+  	"ItemAliases"					"storm scythe, desolator, maelstrom, but, butt"
+  	"SecretShop"					"0"
+
+  	// Special
+  	//-------------------------------------------------------------------------------------------------------------
+  	"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"damage_bonus"		"85"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"damage_per_armor"		"3"
+			}
+		}
+	}
+
+	"item_recipe_storm_scythe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"ID"							"1265"  //Valve's version of this item uses the ID "91".
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"500"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_storm_scythe"
+		"ItemRequirements"
+		{
+			"01"						"item_desolator;item_maelstrom"
+		}
+	}
+
+}

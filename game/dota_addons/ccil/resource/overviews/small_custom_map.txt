@@ -1,0 +1,8 @@
+small_custom_map
+{
+	material materials/overviews/small_custom_map.vmat
+	pos_x -5120
+	pos_y 5120
+	scale 10.000
+}
+

@@ -1,0 +1,14 @@
+"AddonInfo"
+{
+  "TeamCount" "2"
+  "maps"      "dota,small_custom_map"
+  "IsPlayable"  "1"
+  "dota"
+  {
+          "MaxPlayers"                    "10"
+  }
+  "small_custom_map"
+  {
+          "MaxPlayers"                    "10"
+  }
+}
