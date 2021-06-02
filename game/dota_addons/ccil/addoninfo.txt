@@ -1,7 +1,7 @@
 "AddonInfo"
 {
+  "maps"      "dota small_custom_map"
   "TeamCount" "2"
-  "maps"      "dota,small_custom_map"
   "IsPlayable"  "1"
   "dota"
   {
