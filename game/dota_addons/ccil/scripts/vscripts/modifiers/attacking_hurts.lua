@@ -72,21 +72,25 @@ function attacking_hurts_lua:OnTakeDamage(params)
 		if not params.unit:IsOther() and params.attacker:IsAlive() and bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION then
 		EmitSoundOnClient("DOTA_Item.BladeMail.Damage", params.attacker:GetPlayerOwner())
 
-			if self:GetParent() == params.unit then
+			if params.inflictor and not params.inflictor:GetAbilityName()=="item_blade_mail" and not params.inflictor:GetAbilityName()=="spectre_dispersion" then
+				if self:GetParent() == params.unit then
 
-				if self:GetParent():IsIllusion() then
-					local originalDamage = originalDamage*.1
+					if self:GetParent():IsIllusion() then
+						local originalDamage = originalDamage*.1
+					end
+					local DamageInfo = {
+								victim = originalAttacker,
+								attacker = self:GetParent(),
+								damage = originalDamage*passiveReflect,
+								damage_flags	= DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+								damage_type = damageType,
+								ability = self:GetAbility()
+								}
+					ApplyDamage(DamageInfo)
 				end
-				local DamageInfo = {
-							victim = originalAttacker,
-							attacker = self:GetParent(),
-							damage = originalDamage*passiveReflect,
-							damage_flags	= DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
-							damage_type = damageType,
-							ability = self:GetAbility()
-							}
-				ApplyDamage(DamageInfo)
 			end
+
 		end
+		
 	end
 end

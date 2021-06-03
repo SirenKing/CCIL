@@ -271,22 +271,22 @@
   		"04"
   		{
   			"var_type"				"FIELD_INTEGER"
-  			"passive_ref"			 "15"
+  			"passive_ref"			 "10"
   		}
   		"05"
   		{
   			"var_type"				"FIELD_INTEGER"
-  			"active_ref"			 "120"
+  			"active_ref"			 "100"
   		}
   		"06"
   		{
   			"var_type"				"FIELD_INTEGER"
-  			"active_ref_dur"			 "4.5"
+  			"active_ref_dur"			 "4"
   		}
   		"07"
   		{
   			"var_type"				"FIELD_FLOAT"
-  			"dmg_red_amt"			 "50"
+  			"dmg_red_amt"			 "30"
   		}
   		"08"
   		{
@@ -605,12 +605,12 @@
   		"01"
   		{
   			"var_type"							"FIELD_INTEGER"
-  			"poison_movement_speed_melee"		"16"
+  			"poison_movement_speed_melee"		"8"
   		}
   		"02"
   		{
   			"var_type"							"FIELD_INTEGER"
-  			"poison_movement_speed_ranged"		"8"
+  			"poison_movement_speed_ranged"		"4"
   		}
   		"03"
   		{
@@ -750,12 +750,12 @@
 			"01"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"damage_bonus"		"85"
+				"damage_bonus"		"65"
 			}
 			"02"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"damage_per_armor"		"3"
+				"damage_per_armor"		"2"
 			}
 		}
 	}

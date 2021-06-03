@@ -12,6 +12,10 @@ function modifier_item_viper_cleats_melee:RemoveOnDeath() return true end
 function modifier_item_viper_cleats_melee:IsHidden() return false end 	-- we can hide the modifier
 function modifier_item_viper_cleats_melee:IsDebuff() return true end 	-- make it red or green
 
+function modifier_item_viper_cleats_melee:IsPurgable()
+	return true
+end
+
 function modifier_item_viper_cleats_melee:GetEffectName()
 	return "particles/items2_fx/orb_of_venom.vpcf"
 end
@@ -27,7 +31,7 @@ function modifier_item_viper_cleats_melee:OnIntervalThink()
 		attacker = self:GetCaster(),
 		damage = damgePS*stacks,
 		damage_type = DAMAGE_TYPE_MAGICAL,
-		damage_flags = DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR,
+		damage_flags = nil,
 		ability = self:GetAbility()
 	}
 	ApplyDamage(damageInfo)
